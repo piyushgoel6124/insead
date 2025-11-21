@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dbstyle.css">
+</head>
+<body>
+
+<div class="header">
+  <h2 id="welcome"></h2>
+  <div class="header-icons">
+    <a id="profileLink" class="icon"><img src="images/user.svg" alt="Profile" width="20"></a>
+    <a id="feesLink" class="icon"><img src="images/bell.svg" alt="Notifications" width="20"></a>
+  </div>
+</div>
+
+<div class="dashboard-grid">
+  <div class="card">
+    <div class="card-header">
+      <h3>Users</h3>
+      <div class="icon">
+        <a id="usersProfileLink" href="profile.html" style="text-decoration: none; color: inherit;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-circle">
+        <span id="totalUsers" class="value"></span>
+        <span class="label">Users</span>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="color-box" style="background-color: #4285f4;"></span> Students</div>
+      <div class="legend-item"><span class="color-box" style="background-color: #ea4335;"></span> Teachers</div>
+      <div class="legend-item"><span class="color-box" style="background-color: #34a853;"></span> Parents</div>
+      <div class="legend-item"><span class="color-box" style="background-color: #fbbc05;"></span> Support Staff</div>
+    </div>
+  </div>
+
+  <div class="card payment-status">
+    <div class="card-header">
+      <h3>Payment Status</h3>
+      <div class="icon">
+        <a id="paymentFeesLink" href="fees.html" style="text-decoration: none; color: inherit;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-circle">
+        <span id="payStatus" class="value"></span>
+        <span class="label">Payment Status</span>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="color-box" style="background-color: #34a853;"></span> Paid</div>
+      <div class="legend-item"><span class="color-box" style="background-color: #ea4335;"></span> Unpaid</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Fees Payment</h3>
+      <div class="icon">
+        <a id="feesPaymentPageLink" href="fees.html" style="text-decoration: none; color: inherit;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div id="feesPaymentList" class="payment-details">
+      <!-- Fees payment items will be inserted here by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<script src="loader.js"></script>
+
+<script>
+// load JSON
+async function main(){
+  const data = await loadStudent();
+  const fullName = `${data.firstName} ${data.middleName ? data.middleName + ' ' : ''}${data.lastName}`;
+
+  document.getElementById("welcome").textContent =
+    "Welcome, " + fullName;
+
+  document.getElementById("totalUsers").textContent =
+    data.stats.totalUsers;
+
+  const totalFeesPaid = data.fees.reduce((sum, fee) => sum + fee.paid, 0);
+  document.getElementById("payStatus").textContent =
+    "$" + totalFeesPaid.toFixed(2); // Format as currency
+
+  // Populate Fees Payment list
+  const feesPaymentList = document.getElementById("feesPaymentList");
+  feesPaymentList.innerHTML = ''; // Clear previous entries before populating
+  data.fees.forEach(fee => {
+    const feeItem = `
+      <div class="payment-item">
+        <span class="payment-amount">$${fee.paid.toFixed(2)}</span>
+        <div class="payment-info">
+          <span class="name">${fee.title}</span>
+          <span class="date">${fee.date}</span>
+        </div>
+        <div class="payment-actions">
+          <div class="icon">🗑️</div>
+        </div>
+      </div>
+    `;
+    feesPaymentList.insertAdjacentHTML("beforeend", feeItem);
+  });
+
+  // links
+  const uid = data.userid;
+  document.getElementById("profileLink").href = "profile.html?userid=" + uid;
+  document.getElementById("feesLink").href = "fees.html?userid=" + uid;
+  document.getElementById("paymentFeesLink").href = "fees.html?userid=" + uid;
+  document.getElementById("usersProfileLink").href = "profile.html?userid=" + uid;
+  document.getElementById("feesPaymentPageLink").href = "fees.html?userid=" + uid;
+}
+main();
+</script>
+
+</body>
+</html>

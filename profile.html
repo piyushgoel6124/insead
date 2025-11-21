@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/logo-full.webp" alt="Clear University" width="150">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" id="dashboardLink"> Dashboard</a></li>
+                    <li><a href="#"> Courses</a></li>
+                    <li><a href="#"> Grades</a></li>
+                    <li><a href="#"> Schedule</a></li>
+                    <li class="active"><a href="#"> Profile</a></li>
+                    <li><a href="#" id="feesLink"> Fees</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1>Student Profile</h1>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="header-icons">
+                        <img src="images/bell.svg" alt="Notifications" class="icon">
+                        <!-- <img src="images/settings.svg" alt="Settings" class="icon"> -->
+                        <img src="images/user.svg" alt="User Profile" class="icon">
+                    </div>
+                </div>
+            </header>
+            <div class="profile-layout">
+                <div class="profile-card card">
+                    <img id="profilePicture" src="" alt="Profile Picture">
+                    <h3 id="profileName"></h3>
+                    <p>Student ID: <span id="studentId"></span></p>
+                    <p>Major: <span id="major"></span></p>
+                    <p><span id="address"></span></p>
+                </div>
+                <div class="personal-information card">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" readonly>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name*</label>
+                            <input type="text" id="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">Middle Name</label>
+                            <input type="text" id="middleName">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth</label>
+                            <input type="date" id="dateOfBirth">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number*</label>
+                            <input type="text" id="contactNumber">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="personalAddress">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="loader.js"></script>
+    <script>
+        async function main() {
+            const data = await loadStudent();
+            const uid = data.userid;
+
+            document.getElementById("dashboardLink").href = "dashboard.html?userid=" + uid;
+            document.getElementById("feesLink").href = "fees.html?userid=" + uid;
+
+            document.getElementById("profilePicture").src = data.profile_picture;
+            document.getElementById("profileName").innerText = `${data.firstName} ${data.middleName || ''} ${data.lastName}`;
+            document.getElementById("studentId").innerText = data.studentId;
+            document.getElementById("major").innerText = data.major;
+            // document.getElementById("address").innerText = data.address;
+
+            // Populate account settings (email read-only)
+            document.getElementById("email").value = data.email || "";
+            
+            // Populate personal information
+            document.getElementById("firstName").value = data.firstName || "";
+            document.getElementById("middleName").value = data.middleName || "";
+            document.getElementById("lastName").value = data.lastName || "";
+            document.getElementById("dateOfBirth").value = data.dob || "";
+            document.getElementById("contactNumber").value = data.contactNumber || "";
+            document.getElementById("personalAddress").value = data.address || "";
+        }
+        main();
+    </script>
+</body>
+</html>

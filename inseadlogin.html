@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo — Error Page (NOT REAL)</title>
+  <style>
+    :root{--bg:#f5f6f8;--card:#fff;--muted:#6b7280;--accent:#0b63c6;--danger:#c62828}
+    body{margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#eef2f7 0%,var(--bg) 100%);color:#111}
+    .banner{background:#fffae6;color:#663c00;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.04);font-weight:700;display:flex;align-items:center;gap:12px}
+    .banner .pill{background:var(--danger);color:#fff;padding:4px 8px;border-radius:4px;font-weight:700;font-size:12px}
+    .wrap{max-width:980px;margin:48px auto;padding:24px}
+    .card{background:var(--card);border-radius:8px;box-shadow:0 6px 20px rgba(17,24,39,.06);padding:28px;display:flex;gap:24px}
+    .left{flex:1;min-width:320px}
+    .title{font-size:20px;font-weight:700;margin:0 0 8px}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .meta{background:#f3f6fb;border-radius:6px;padding:12px;color:#0b63c6;font-weight:600;display:inline-block}
+    .details{margin-top:18px;color:var(--muted);font-size:14px;line-height:1.45}
+    .right{width:300px;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+    .box{width:100%;background:#fafafa;border-radius:6px;padding:14px;border:1px solid #e6e9ee;color:#333}
+    .small{font-size:12px;color:var(--muted)}
+    footer{max-width:980px;margin:18px auto;text-align:center;color:var(--muted);font-size:12px}
+    /* accessibility: strong contrast for demo label */
+    .demo-label{position:fixed;left:12px;bottom:12px;background:#000;color:#fff;padding:6px 10px;border-radius:6px;font-weight:700;z-index:9999}
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <span class="pill">DEMO</span>
+    <div>This page is a demonstration template only — not connected to any real service. Do not use to impersonate any organization.</div>
+  </div>
+
+  <main class="wrap">
+    <div class="card" role="main" aria-labelledby="errTitle">
+      <div class="left">
+        <h1 class="title" id="errTitle">We received a bad request.</h1>
+        <p class="subtitle">Error code: <span class="meta">ERR-DEMO-400</span></p>
+        <div class="details" aria-live="polite">
+          <p><strong>Message:</strong> A required request parameter was missing or malformed.</p>
+          <p><strong>Timestamp:</strong> 2025-11-20T15:56:11Z</p>
+          <p><strong>Trace ID (demo):</strong> 0ee2db1f-7bec-434b-8c16-8c56a96e6300</p>
+          <p class="small">This is a mock error page intended for UI testing and training. It contains no real authentication flows, links, or branding.</p>
+        </div>
+      </div>
+
+      <aside class="right" aria-label="Actions">
+        <div class="box">
+          <div style="font-weight:700;margin-bottom:6px">What you can do</div>
+          <div class="small">If this were a real service: check the request parameters, verify SAML payload, or retry the operation from the originating application.</div>
+        </div>
+
+        <div class="box">
+          <div style="font-weight:700;margin-bottom:6px">Support (demo)</div>
+          <div class="small">Contact your application owner. Do not treat this demo as a real support channel.</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>DEMONSTRATION ONLY — This page is intentionally generic and not an impersonation.</footer>
+
+  <div class="demo-label" role="status" aria-atomic="true">DEMO — NOT REAL</div>
+</body>
+</html>

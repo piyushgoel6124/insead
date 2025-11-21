@@ -1,0 +1,207 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.header-icons .icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px; /* Base height for portrait orientation */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.card-header .icon {
+  width: 20px;
+  height: 20px;
+  background-color: #e0e0e0; /* Placeholder for icon background */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 320px; /* Adjust as needed */
+  margin-bottom: 15px;
+}
+
+.chart-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #4285f4 0% 50%, /* Example: 50% blue for students */
+    #ea4335 50% 100% /* Example: 50% red for teachers */
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.2;
+  padding: 15px; /* Add padding to prevent text from touching boundary */
+  color: #333;
+  position: relative;
+}
+
+.chart-circle::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.chart-circle .value {
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.chart-circle .label {
+  font-size: 12px;
+  color: #666;
+  z-index: 1;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #555;
+}
+
+.legend-item .color-box {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.payment-status {
+  min-height: 400px; /* Make card taller */
+}
+
+.payment-status .chart-container {
+  height: 320px; /* Adjust chart container height to make circle larger */
+}
+
+.payment-status .chart-circle {
+  width: 200px; /* Make circle larger */
+  height: 200px; /* Make circle larger */
+  background: conic-gradient(
+    #34a853 0% 100% /* Example: 100% green for paid */
+  );
+}
+
+.payment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.payment-item:last-child {
+  border-bottom: none;
+}
+
+.payment-amount {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.payment-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: center; /* Vertically center content in payment-info */
+}
+
+.payment-item {
+  align-items: center; /* Ensure vertical alignment of items in the row */
+}
+
+.payment-info .name {
+  font-weight: bold;
+}
+
+.payment-info .date {
+  color: #888;
+  font-size: 12px;
+}
+
+.payment-actions .icon {
+  margin-left: 10px;
+  background-color: #e0e0e0; /* Placeholder for icon background */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

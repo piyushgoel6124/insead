@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fees Payment</title>
+    <link rel="stylesheet" href="fstyle.css">
+    <script src="loader.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="images/logo-full.webp" alt="Logo" class="logo">
+        <h2>Fees Payment</h2>
+        <img src="images/bell.svg" alt="Notifications" class="notification-bell">
+    </div>
+    <div class="container">
+    <a id="homeLink" style="display: none;">Home</a>
+    <a id="profileLink" style="display: none;">Profile</a>
+
+<div class="table-container">
+    <div class="controls">
+        <div class="left">
+            <select>
+                <option>10</option>
+            </select>
+            <span>Showing 1 to 1 of 1 entries</span>
+        </div>
+        <div class="right">
+            <input type="text" placeholder="Search..." class="search-input">
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Fees Title</th>
+                <th>Student Name</th>
+                <th>Class Name</th>
+                <th>Payment Status</th>
+                <th>Total Amount</th>
+                <th>Paid Amount</th>
+                <th>Due Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="fbody"></tbody>
+    </table>
+    <div class="pagination">
+        <button>Previous</button>
+        <button class="active">1</button>
+        <button>Next</button>
+    </div>
+</div>
+
+<script>
+    async function main() {
+        const data = await loadStudent();
+
+        const uid = data.userid;
+        document.getElementById("homeLink").href = "dashboard.html?userid=" + uid;
+        document.getElementById("profileLink").href = "profile.html?userid=" + uid;
+
+        const body = document.getElementById("fbody");
+
+        data.fees.forEach(f => {
+            const row = `
+            <tr>
+                <td><img src="${data.profile_picture}" width="50"></td>
+                <td>${f.title}</td>
+                <td>${data.firstName} ${data.middleName} ${data.lastName}(${data.userid})</td>
+                <td>${f.class}</td>
+                <td><span class="${f.status === 'Paid' && f.due === 0 ? 'status-fully-paid' : 'status-paid'}">${f.status === 'Paid' && f.due === 0 ? 'Fully Paid' : f.status}</span></td>
+                <td>$${f.total}</td>
+                <td>$${f.paid}</td>
+                <td>$${f.due}</td>
+                <td><span class="status-paid">${f.status}</span></td>
+            </tr>`;
+            body.insertAdjacentHTML("beforeend", row);
+        });
+    }
+    main();
+</script>
+
+</body>
+</html>

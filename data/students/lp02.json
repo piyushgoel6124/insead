@@ -1,0 +1,61 @@
+{
+  "userid": "lp02",
+  "firstName": "Love",
+  "middleName": "Preet",
+  "lastName": "Singh",
+  "studentId": "12345",
+  "major": "Computer Science",
+  "address": "Clementi blk 377",
+  "email": "lovepreet@ehlcampus.org",
+  "profile_picture": "data/students/lp02.png",
+  "dob": "2002-04-07",
+  "contactNumber": "+919876543210",
+
+  "fees": [
+    {
+      "title": "Admission Fees",
+      "class": "All Class",
+      "total": 15600,
+      "paid": 15600,
+      "due": 0,
+      "status": "Paid",
+      "date": "26-09-2025"
+    },
+    {
+      "title": "fees first sem",
+      "class": "All Class",
+      "total": 15600,
+      "paid": 15600,
+      "due": 0,
+      "status": "Paid",
+      "date": "26-09-2025"
+    },
+    {
+      "title": "fees second sem",
+      "class": "All Class",
+      "total": 15600,
+      "paid": 15600,
+      "due": 0,
+      "status": "Paid",
+      "date": "26-09-2025"
+    },
+    {
+      "title": "Partial Payment Fees",
+      "class": "All Class",
+      "total": 1200,
+      "paid": 1200,
+      "due": 0,
+      "status": "Paid",
+      "date": "21-11-2025"
+    }
+  ],
+
+  "stats": {
+    "totalUsers": 2,
+    "payments": {
+      "total": 48000,
+      "paid": 47700,
+      "unpaid": 300
+    }
+  }
+}
