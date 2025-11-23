@@ -129,7 +129,8 @@ body {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto; /* Center the image horizontally */
+    display: block; /* Make it a block element to apply margin auto */
     border: 3px solid #eee;
 }
 
@@ -194,6 +195,103 @@ body {
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #007bff;
+}
+
+.grades-list,
+.courses-list,
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.grade-item,
+.course-item,
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.grade-item:last-child,
+.course-item:last-child,
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.course-name, .grade-value, .semester,
+.course-id, .course-title, .course-instructor, .course-credits,
+.schedule-day, .schedule-time, .schedule-course, .schedule-location {
+  flex: 1;
+  padding: 0 5px;
+}
+
+.course-name, .course-title, .schedule-course {
+  font-weight: bold;
+}
+
+.header-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.header-icons .icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px; /* Base height for portrait orientation */
 }
 
 .card-header {
@@ -358,4 +456,238 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+/* Grades Page Specific Styles */
+.grades-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.semester-summary, .course-grades, .grade-distribution {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.semester-summary {
+    grid-column: 1 / 2;
+}
+
+.course-grades {
+    grid-column: 2 / 3;
+}
+
+.grade-distribution {
+    grid-column: 1 / 3;
+}
+
+.semester-summary .chart-container,
+.grade-distribution .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 200px;
+}
+
+.circular-progress {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#007bff 0% 85%, #e0e0e0 85% 100%); /* Example: 85% progress */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-circle {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    flex-direction: column;
+}
+
+.semester-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.semester-legend .legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.semester-legend .color-box {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.semester-legend .semester1 {
+    background-color: #007bff;
+}
+
+.semester-legend .semester2 {
+    background-color: #e0e0e0;
+}
+
+.course-grades table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.course-grades th, .course-grades td {
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: left;
+}
+
+.course-grades th {
+    background-color: #f0f2f5;
+    font-weight: bold;
+    color: #333;
+}
+
+.course-grades tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.course-grades .download-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+/* Fees Page Specific Styles */
+.table-container {
+    padding: 20px;
+}
+
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.controls .left, .controls .right {
+    display: flex;
+    align-items: center;
+}
+
+.controls select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+.controls .search-input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 200px;
+}
+
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #555;
+}
+
+table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+table img {
+    border-radius: 50%;
+}
+
+.status-paid {
+    background-color: #e6ffe6;
+    color: #008000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.status-fully-paid {
+    background-color: #e6ffe6;
+    color: #008000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-fully-paid::before {
+    content: '✔';
+    margin-right: 5px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.pagination button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
 }

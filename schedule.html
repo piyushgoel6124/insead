@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Student Schedule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/logo-full.webp" alt="Clear University" width="150">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" id="dashboardLink"> Dashboard</a></li>
+                    <li><a href="#" id="coursesLink"> Courses</a></li>
+                    <li><a href="#" id="gradesLink"> Grades</a></li>
+                    <li class="active"><a href="#" id="scheduleLink"> Schedule</a></li>
+                    <li><a href="#" id="profileLink"> Profile</a></li>
+                    <li><a href="#" id="feesLink"> Fees</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1 id="scheduleWelcome">Weekly Schedule</h1>
+            </header>
+
+            <div class="schedule-layout">
+                <div class="weekly-schedule card">
+                    <div class="card-header">
+                        <h3>Your Classes</h3>
+                    </div>
+                    <div class="schedule-table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                    <th>Course</th>
+                                    <th>Room</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scheduleTableBody">
+                                <!-- Schedule items will be inserted here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="loader.js"></script>
+    <script>
+        async function main() {
+            const data = await loadStudent();
+            const rollNumber = data.rollNumber;
+
+            // Sidebar links
+            document.getElementById("dashboardLink").href = "dashboard.html?rollNumber=" + rollNumber;
+            document.getElementById("coursesLink").href = "courses.html?rollNumber=" + rollNumber;
+            document.getElementById("gradesLink").href = "grades.html?rollNumber=" + rollNumber;
+            document.getElementById("scheduleLink").href = "schedule.html?rollNumber=" + rollNumber;
+            document.getElementById("profileLink").href = "profile.html?rollNumber=" + rollNumber;
+            document.getElementById("feesLink").href = "fees.html?rollNumber=" + rollNumber;
+
+            // Populate schedule table
+            const scheduleTableBody = document.getElementById("scheduleTableBody");
+            scheduleTableBody.innerHTML = ''; // Clear previous entries
+            data.schedule.forEach(item => {
+                const row = `
+                    <tr>
+                        <td>${item.day}</td>
+                        <td>${item.time}</td>
+                        <td>${item.course}</td>
+                        <td>${item.Room}</td>
+                    </tr>
+                `;
+                scheduleTableBody.insertAdjacentHTML("beforeend", row);
+            });
+        }
+        main();
+    </script>
+</body>
+</html>

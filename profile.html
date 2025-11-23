@@ -14,10 +14,10 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li><a href="#" id="dashboardLink"> Dashboard</a></li>
-                    <li><a href="#"> Courses</a></li>
-                    <li><a href="#"> Grades</a></li>
-                    <li><a href="#"> Schedule</a></li>
-                    <li class="active"><a href="#"> Profile</a></li>
+                    <li><a href="#" id="coursesLink"> Courses</a></li>
+                    <li><a href="#" id="gradesLink"> Grades</a></li>
+                    <li><a href="#" id="scheduleLink"> Schedule</a></li>
+                    <li class="active"><a href="#" id="profileLink"> Profile</a></li>
                     <li><a href="#" id="feesLink"> Fees</a></li>
                 </ul>
             </nav>
@@ -25,16 +25,6 @@
         <main class="main-content">
             <header class="header">
                 <h1>Student Profile</h1>
-                <div class="header-right">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search">
-                    </div>
-                    <div class="header-icons">
-                        <img src="images/bell.svg" alt="Notifications" class="icon">
-                        <!-- <img src="images/settings.svg" alt="Settings" class="icon"> -->
-                        <img src="images/user.svg" alt="User Profile" class="icon">
-                    </div>
-                </div>
             </header>
             <div class="profile-layout">
                 <div class="profile-card card">
@@ -87,10 +77,14 @@
     <script>
         async function main() {
             const data = await loadStudent();
-            const uid = data.userid;
+            const rollNumber = data.rollNumber;
 
-            document.getElementById("dashboardLink").href = "dashboard.html?userid=" + uid;
-            document.getElementById("feesLink").href = "fees.html?userid=" + uid;
+            document.getElementById("dashboardLink").href = "dashboard.html?rollNumber=" + rollNumber;
+            document.getElementById("coursesLink").href = "courses.html?rollNumber=" + rollNumber;
+            document.getElementById("gradesLink").href = "grades.html?rollNumber=" + rollNumber;
+            document.getElementById("scheduleLink").href = "schedule.html?rollNumber=" + rollNumber;
+            document.getElementById("profileLink").href = "profile.html?rollNumber=" + rollNumber;
+            document.getElementById("feesLink").href = "fees.html?rollNumber=" + rollNumber;
 
             document.getElementById("profilePicture").src = data.profile_picture;
             document.getElementById("profileName").innerText = `${data.firstName} ${data.middleName || ''} ${data.lastName}`;

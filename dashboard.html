@@ -3,30 +3,34 @@
 <head>
   <meta charset="utf-8">
   <title>Dashboard</title>
-  <link rel="stylesheet" href="dbstyle.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/logo-full.webp" alt="Clear University" width="150">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#" id="dashboardLink"> Dashboard</a></li>
+                    <li><a href="#" id="coursesLink"> Courses</a></li>
+                    <li><a href="#" id="gradesLink"> Grades</a></li>
+                    <li><a href="#" id="scheduleLink"> Schedule</a></li>
+                    <li><a href="#" id="profileLink"> Profile</a></li>
+                    <li><a href="#" id="feesLink"> Fees</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1 id="welcome"></h1>
+            </header>
 
-<div class="header">
-  <h2 id="welcome"></h2>
-  <div class="header-icons">
-    <a id="profileLink" class="icon"><img src="images/user.svg" alt="Profile" width="20"></a>
-    <a id="feesLink" class="icon"><img src="images/bell.svg" alt="Notifications" width="20"></a>
-  </div>
-</div>
-
-<div class="dashboard-grid">
+            <div class="dashboard-grid">
   <div class="card">
     <div class="card-header">
       <h3>Users</h3>
-      <div class="icon">
-        <a id="usersProfileLink" href="profile.html" style="text-decoration: none; color: inherit;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
     </div>
     <div class="chart-container">
       <div class="chart-circle">
@@ -45,14 +49,6 @@
   <div class="card payment-status">
     <div class="card-header">
       <h3>Payment Status</h3>
-      <div class="icon">
-        <a id="paymentFeesLink" href="fees.html" style="text-decoration: none; color: inherit;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
     </div>
     <div class="chart-container">
       <div class="chart-circle">
@@ -69,14 +65,6 @@
   <div class="card">
     <div class="card-header">
       <h3>Fees Payment</h3>
-      <div class="icon">
-        <a id="feesPaymentPageLink" href="fees.html" style="text-decoration: none; color: inherit;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
     </div>
     <div id="feesPaymentList" class="payment-details">
       <!-- Fees payment items will be inserted here by JavaScript -->
@@ -113,24 +101,36 @@ async function main(){
           <span class="name">${fee.title}</span>
           <span class="date">${fee.date}</span>
         </div>
-        <div class="payment-actions">
-          <div class="icon">🗑️</div>
-        </div>
       </div>
     `;
     feesPaymentList.insertAdjacentHTML("beforeend", feeItem);
   });
 
   // links
-  const uid = data.userid;
-  document.getElementById("profileLink").href = "profile.html?userid=" + uid;
-  document.getElementById("feesLink").href = "fees.html?userid=" + uid;
-  document.getElementById("paymentFeesLink").href = "fees.html?userid=" + uid;
-  document.getElementById("usersProfileLink").href = "profile.html?userid=" + uid;
-  document.getElementById("feesPaymentPageLink").href = "fees.html?userid=" + uid;
+  const rollNumber = data.rollNumber;
+  // sidebar links
+  document.getElementById("dashboardLink").href = "dashboard.html?rollNumber=" + rollNumber;
+  document.getElementById("coursesLink").href = "courses.html?rollNumber=" + rollNumber;
+  document.getElementById("gradesLink").href = "grades.html?rollNumber=" + rollNumber;
+  document.getElementById("scheduleLink").href = "schedule.html?rollNumber=" + rollNumber;
+  document.getElementById("profileLink").href = "profile.html?rollNumber=" + rollNumber;
+  document.getElementById("feesLink").href = "fees.html?rollNumber=" + rollNumber;
+
+  // header icon links
+  document.getElementById("profileIconLink").href = "profile.html?rollNumber=" + rollNumber;
+  document.getElementById("feesIconLink").href = "fees.html?rollNumber=" + rollNumber;
+
+
+  document.getElementById("paymentFeesLink").href = "fees.html?rollNumber=" + rollNumber;
+  document.getElementById("usersProfileLink").href = "profile.html?rollNumber=" + rollNumber;
+  document.getElementById("feesPaymentPageLink").href = "fees.html?rollNumber=" + rollNumber;
+
 }
 main();
 </script>
+
+        </main>
+    </div>
 
 </body>
 </html>

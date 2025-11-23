@@ -1,0 +1,60 @@
+{
+  "rollNumber": "2300680100210",
+  "firstName": "piyush",
+  "middleName": "",
+  "lastName": "goel",
+  "studentId": "2323",
+  "major": "cse",
+  "address": "abcd",
+  "email": "pi@gmail.com",
+  "profile_picture": "hihihiihih.com/img.jpg",
+  "dob": "2004-12-06",
+  "contactNumber": "9696868686",
+  "fees": [
+    {
+      "title": "Admission fees",
+      "class": "All Class",
+      "total": 15600,
+      "paid": 15600,
+      "date": "2025-11-11"
+    }
+  ],
+  "grades": [
+    {
+      "courseCode": "151",
+      "grade": "A+",
+      "credits": 5,
+      "semester": "1"
+    },
+    {
+      "courseCode": "151",
+      "grade": "A+",
+      "credits": 5,
+      "semester": "1"
+    }
+  ],
+  "courses": [
+    {
+      "id": "151",
+      "name": "CSE",
+      "instructor": "PT",
+      "credits": 5
+    }
+  ],
+  "schedule": [
+    {
+      "day": "Wednesday",
+      "time": "9:00-10:00",
+      "course": "CSE",
+      "Room": "101"
+    }
+  ],
+  "stats": {
+    "totalUsers": 2,
+    "payments": {
+      "total": 1,
+      "paid": 1,
+      "unpaid": 0
+    }
+  }
+}
