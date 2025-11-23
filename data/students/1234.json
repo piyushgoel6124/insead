@@ -1,0 +1,66 @@
+{
+  "rollNumber": "1234",
+  "firstName": "hello",
+  "middleName": "my",
+  "lastName": "sir",
+  "studentId": "1234",
+  "major": "IOT",
+  "address": "house",
+  "email": "1234@gmail.com",
+  "profile_picture": "1234.png",
+  "dob": "2004-11-15",
+  "contactNumber": "4242424242",
+  "fees": [
+    {
+      "title": "First Payment",
+      "class": "First",
+      "total": 23000,
+      "paid": 23000,
+      "date": "2021-11-11"
+    }
+  ],
+  "grades": [
+    {
+      "courseCode": "121",
+      "grade": "A+",
+      "credits": 5,
+      "semester": "2"
+    },
+    {
+      "courseCode": "122",
+      "grade": "A",
+      "credits": 4,
+      "semester": "2"
+    }
+  ],
+  "courses": [
+    {
+      "id": "121",
+      "name": "CSE",
+      "instructor": "Teacher name 1",
+      "credits": 5
+    },
+    {
+      "id": "122",
+      "name": "IOT",
+      "instructor": "Teacher name 2",
+      "credits": 5
+    }
+  ],
+  "schedule": [
+    {
+      "day": "Wednesday",
+      "time": "12:00 to 12:50",
+      "course": "122",
+      "Room": "A-12"
+    }
+  ],
+  "stats": {
+    "totalUsers": 1,
+    "payments": {
+      "total": 2,
+      "paid": 2,
+      "unpaid": 0
+    }
+  }
+}
