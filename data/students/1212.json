@@ -1,0 +1,66 @@
+{
+  "rollNumber": "1212",
+  "firstName": "1212",
+  "middleName": "",
+  "lastName": "1212",
+  "studentId": "1212",
+  "major": "cse",
+  "address": "house",
+  "email": "house@gmail.com",
+  "profile_picture": "random image",
+  "dob": "2001-01-01",
+  "contactNumber": "1212211212",
+  "fees": [
+    {
+      "title": "hi",
+      "class": "we",
+      "total": 1223,
+      "paid": 1223,
+      "date": "2008-01-01"
+    }
+  ],
+  "grades": [
+    {
+      "courseCode": "121",
+      "grade": "A+",
+      "credits": 5,
+      "semester": "1"
+    },
+    {
+      "courseCode": "122",
+      "grade": "A",
+      "credits": 4,
+      "semester": "1"
+    }
+  ],
+  "courses": [
+    {
+      "id": "121",
+      "name": "cse",
+      "instructor": "pt1",
+      "credits": 5
+    },
+    {
+      "id": "122",
+      "name": "ece",
+      "instructor": "pt2",
+      "credits": 5
+    }
+  ],
+  "schedule": [
+    {
+      "day": "wedesnday",
+      "time": "12 to 1",
+      "course": "122",
+      "Room": "A-12"
+    }
+  ],
+  "stats": {
+    "totalUsers": 2,
+    "payments": {
+      "total": 1,
+      "paid": 1,
+      "unpaid": 0
+    }
+  }
+}
