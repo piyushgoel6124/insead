@@ -1,0 +1,116 @@
+{
+  "rollNumber": "85234269",
+  "ver": "EHL123",
+  "firstName": "Tushar",
+  "middleName": "",
+  "lastName": "",
+  "studentId": "85234269",
+  "major": "Business Management",
+  "address": "245 HOUGANG STREET 22 #10-151, SINGAPORE 530245",
+  "email": "tushar.85234269@ehlcampus.org",
+  "profile_picture": "data/students/85234269.png",
+  "dob": "2003-12-21", 
+  "contactNumber": "+65 80873781",
+  "fees": [
+    {
+      "title": "Course Fees",
+      "class": "Business Management",
+      "total": 25000,
+      "paid": 25000,
+      "date": "09-2025"
+    }
+  ],
+  "grades": [
+    {
+      "courseCode": "BM101",
+      "grade": "A",
+      "credits": 4,
+      "semester": "Fall 2025"
+    },
+    {
+      "courseCode": "BM102",
+      "grade": "B+",
+      "credits": 3,
+      "semester": "Fall 2025"
+    },
+    {
+      "courseCode": "ECO105",
+      "grade": "A-",
+      "credits": 4,
+      "semester": "Fall 2025"
+    },
+    {
+      "courseCode": "ACC110",
+      "grade": "B",
+      "credits": 3,
+      "semester": "Fall 2025"
+    }
+  ],
+  "courses": [
+    {
+      "id": "BM101",
+      "name": "Principles of Management",
+      "instructor": "Dr. Wilson",
+      "credits": 4
+    },
+    {
+      "id": "BM102",
+      "name": "Business Communication",
+      "instructor": "Prof. Carter",
+      "credits": 3
+    },
+    {
+      "id": "ECO105",
+      "name": "Microeconomics",
+      "instructor": "Dr. Patel",
+      "credits": 4
+    },
+    {
+      "id": "ACC110",
+      "name": "Financial Accounting",
+      "instructor": "Ms. Laura",
+      "credits": 3
+    }
+  ],
+  "schedule": [
+    {
+      "day": "Monday",
+      "time": "09:00 AM - 10:30 AM",
+      "course": "Principles of Management",
+      "Room": "B201"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:00 AM - 12:30 PM",
+      "course": "Business Communication",
+      "Room": "C105"
+    },
+    {
+      "day": "Thursday",
+      "time": "02:00 PM - 03:30 PM",
+      "course": "Microeconomics",
+      "Room": "A310"
+    },
+    {
+      "day": "Friday",
+      "time": "10:00 AM - 11:30 AM",
+      "course": "Financial Accounting",
+      "Room": "B110"
+    }
+  ],
+  "stats": {
+    "totalUsers": 2,
+    "payments": {
+      "total": 25000,
+      "paid": 25000,
+      "unpaid": 0
+    }
+  },
+  "documents": {
+    "studentPass": {
+      "fin": "M0501279U",
+      "passIssueDate": "2025-10-03",
+      "passExpiryDate": "2026-04-07"
+    }
+  }
+}

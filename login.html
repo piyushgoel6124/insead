@@ -45,7 +45,7 @@ async function login(e){
   e.preventDefault();
 
   const rollNumber = document.getElementById("uid").value.trim();
-  const pwd = document.getElementById("pwd").value.trim(); // Still required as a field, but not used for verification
+  const pwd = document.getElementById("pwd").value.trim();
 
   try {
     const response = await fetch(`data/students/${rollNumber}.json`);
@@ -53,7 +53,11 @@ async function login(e){
       alert("Invalid credentials"); // No JSON file for this roll number
       return false;
     }
-    // If the file exists, the user can log in. No password verification needed.
+    const studentData = await response.json();
+    if (studentData.ver !== pwd) {
+      alert("Invalid password");
+      return false;
+    }
     location.href = `dashboard.html?rollNumber=${rollNumber}`;
   } catch (error) {
     console.error("Error checking student data:", error);
